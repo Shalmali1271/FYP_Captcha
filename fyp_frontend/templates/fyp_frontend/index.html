@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha</title>
+</head>
+<body>
+    <p>HEHE : {{m}}</p>
+    <p>{{ran_arr}}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for final_img in final_imgs %}
+            <p>{{final_img.key}}</p>
+            <input type="checkbox" name="recommendations" id="option{{final_img.key}}" value={{final_img.key}} />
+            <label for="option{{final_img.key}}"><img  src="{% static '/img/' %}{{final_img.img}}" alt="YOU Are A Failure"/></label><br />
+        {% endfor %}
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>

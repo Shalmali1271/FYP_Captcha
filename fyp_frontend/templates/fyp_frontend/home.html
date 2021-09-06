@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CAPTCHA</title>
+	<link rel="stylesheet" href="{% static 'css1/all.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'captchaUI.css' %}">
+</head>
+<body>
+	<section> 
+		<div class="Title" style="margin-left: 0%;">
+			<h1>Captcha_Defender</h1>
+		</div>
+	<div class="fake-container">
+		<div class="container">
+			<p class="text">Por favor, Select all the images of {{ran_arr}}.</p>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<ul>
+					{% for final_img in final_imgs %}
+					<li>
+						<input type="checkbox" name="recommendations" id="option{{final_img.pk}}" value={{final_img.key}} style="display: none;" />
+						<label for="option{{final_img.pk}}"><img  src="{% static '/img/' %}{{final_img.img}}" alt="YOU Are A Failure"/></label>
+					</li>
+					{% endfor %}
+				</ul>
+				</div>
+				<input type="hidden" name="randomly_arr" value="{{ran_arr}}">
+				<div class="buttons">
+					<input type="submit" class="btn-hover color-8" name="Check"/>
+				</div>
+			</form>
+		</div>
+	</section>
+	
+
+
+
+</body>
+</html>

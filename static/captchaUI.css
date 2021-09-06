@@ -195,6 +195,8 @@ label {
 .container1 {
 	margin: 10vh auto;
 	max-width: 330px;
+	display: inherit;
+	overflow: hidden;
 }
   
 #robot {

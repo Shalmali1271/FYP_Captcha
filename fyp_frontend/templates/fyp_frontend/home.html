@@ -25,11 +25,12 @@
 						<input type="checkbox" name="recommendations" id="option{{final_img.pk}}" value={{final_img.key}} style="display: none;" />
 						<label for="option{{final_img.pk}}"><img  src="{% static '/img/' %}{{final_img.img}}" alt="YOU Are A Failure"/></label>
 					</li>
+					
 					{% endfor %}
 				</ul>
 				</div>
 				<input type="hidden" name="randomly_arr" value="{{ran_arr}}">
-				<input type="hidden" name="check" value="{{final_imgs}}">
+				
 				<div class="buttons">
 					<input type="submit" class="btn-hover color-8" name="Check"/>
 				</div>

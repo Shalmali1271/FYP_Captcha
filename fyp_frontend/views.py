@@ -17,15 +17,17 @@ def index(request) :
 
     final_imgs = keywords | imgs
     
-    checking = 0
-    for t in keywords :
-        chosen = t.key
-    for check in final_imgs :
-        if check.key == chosen :
-            checking = checking + 1
+   
+    
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
+    checking = 0
+    final_imgs_arr = request.POST.getlist('finally_chosen')
+    for check in final_imgs_arr :
+        if check.key == c :
+            checking = checking + 1
+        else : pass
     
     if request.POST.getlist('recommendations') == [c]*checking :
         return redirect(success)

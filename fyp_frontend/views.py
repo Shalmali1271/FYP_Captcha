@@ -22,14 +22,8 @@ def index(request) :
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
-    checking = 0
-    final_imgs_arr = request.POST.getlist('finally_chosen')
-    for check in final_imgs_arr :
-        if check.key == c :
-            checking = checking + 1
-        else : pass
     
-    if request.POST.getlist('recommendations') == [c]*checking :
+    if request.POST.getlist('recommendations') == [c]*3 or request.POST.getlist('recommendations') == [c]*4 or request.POST.getlist('recommendations') == [c]*5 :
         return redirect(success)
     else : pass
 

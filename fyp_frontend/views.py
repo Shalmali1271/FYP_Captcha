@@ -16,10 +16,16 @@ def index(request) :
     imgs = Captcha.objects.filter(pk__in = rest_img).order_by('?')
 
     final_imgs = keywords | imgs 
+    
+    temp = 0
+    for i in final_imgs :
+        if i.key == keywords.key :
+            temp = temp + 1
+        else : pass 
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
-    if request.POST.getlist('recommendations') == [c]*3 or request.POST.getlist('recommendations') == [c]*4 or request.POST.getlist('recommendations') == [c]*5 :
+    if request.POST.getlist('recommendations') == [c]*temp :
         return redirect(success)
     else : pass
 

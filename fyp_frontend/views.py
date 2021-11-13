@@ -15,17 +15,19 @@ def index(request) :
     rest_img = random.choices([i for i in range(1,36) if i not in ids], k = 6)
     imgs = Captcha.objects.filter(pk__in = rest_img).order_by('?')
 
-    final_imgs = keywords | imgs 
+    final_imgs = keywords | imgs
+    
+    checking = 0
+    for t in keywords :
+        chosen = t.key
+    for check in final_imgs :
+        if check.key == chosen :
+            checking = checking + 1
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
-    num = 0
-    check_arr = []
-    check_arr = request.POST.get('checking')
-    for check in check_arr :
-        if check.key == c :
-            num = num + 1
-    if request.POST.getlist('recommendations') == [c]*num :
+    
+    if request.POST.getlist('recommendations') == [c]*checking :
         return redirect(success)
     else : pass
 

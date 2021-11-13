@@ -27,6 +27,11 @@
 					</li>
 					
 					{% endfor %}
+					
+					{% for final_img_i in final_imgs %}
+						<input type="hidden" name="finally_chosen" value="{{final_img_i}}">
+					{% endfor %}
+					
 				</ul>
 				</div>
 				<input type="hidden" name="randomly_arr" value="{{ran_arr}}">

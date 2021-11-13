@@ -19,7 +19,12 @@ def index(request) :
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
-    num = request.POST.get('max_num')
+    num = 0
+    check_arr = []
+    check_arr = request.POST.get('checking')
+    for check in check_arr :
+        if check.key == c :
+            num = num + 1
     if request.POST.getlist('recommendations') == [c]*num :
         return redirect(success)
     else : pass

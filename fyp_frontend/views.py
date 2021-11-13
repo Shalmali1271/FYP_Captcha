@@ -19,11 +19,7 @@ def index(request) :
 
     # checking the output of the user.
     c = request.POST.get('randomly_arr')
-    num = 0
-    for nums in final_imgs :
-        if nums.key == c :
-            num = num + 1
-        else : pass 
+    num = request.POST.get('max_num')
     if request.POST.getlist('recommendations') == [c]*num :
         return redirect(success)
     else : pass

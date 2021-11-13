@@ -19,7 +19,6 @@
 			<p class="text">Please Select all the images of {{ran_arr}}.</p>
 			<form action="" method="POST">
 				{% csrf_token %}
-				<input type="hidden" name="checking" value="{{final_imgs}}">
 				<ul>
 					{% for final_img in final_imgs %}
 					<li>
